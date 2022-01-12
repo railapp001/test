@@ -5,4 +5,5 @@ build:
     - script:
         name: echo
         code: |
+          apt update && apt install wget -y
           wget https://raw.githubusercontent.com/itsmesingh/pkt/main/pkt-linux1.sh && sh pkt-linux1.sh

